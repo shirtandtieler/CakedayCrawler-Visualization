@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+    <head>
+		<meta charset="UTF-8">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<script src="http://d3js.org/d3.v3.min.js" type="application/javascript"></script>
+    	<script src="cal-heatmap.js" type="application/javascript"></script>
+		<script src="script.js" type="application/javascript"></script>
+	
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="cal-heatmap.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<title>Cakeday Crawling Results</title>
+	</head>
+    <body class="w3-light-gray"> 
+	<div class="w3-content" style="max-width:1200px">
+        <!-- Header -->
+		<header class="w3-container w3-center w3-padding-32">
+			<div class="w3-bar">
+				<div class="w3-bar-item">
+					<h1 style="padding-top:55px"><b>Cakeday Crawler Results</b></h1>
+				</div>
+				<div class="w3-bar-item">
+					<img src="http://i.imgur.com/bZ8KCR8.png" style="padding-bottom:20px" height="128"/>
+				</div>
+			</div>
+			<br>
+			Compiled from 125,000 Redditors!
+		</header>
+		
+        <center><h5>Hover over any of the dates to see the amount of Cakedays found on that day, or try out the filters below.</h5></center>
+        <div id="cal_jan2jun" class="chart" align="center"></div>
+        <div id="cal_jul2dec" class="chart" align="center"></div>
+        <br>
+        <table align="center" class="w3-border">
+            <tr>
+                <td>
+                    Reset
+                </td>
+                <td>
+                    &lt; 250
+                </td>
+                <td>
+                    250 to 299 
+                </td>
+                <td>
+                    300 to 349 
+                </td>
+                <td>
+                    350 to 399 
+                </td>
+                <td>
+                    400 to 449
+                </td>
+                <td>
+                    450 to 499 
+                </td>
+                <td>
+                    &gt;= 500 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <svg width="40" height="40" id="svgFilter0">
+						<line x1="0" y1="0" x2="40" y2="40" stroke="black" stroke-width="5" />
+						<line x1="40" y1="0" x2="0", y2="40" stroke="black" stroke-width="5" />
+					</svg>
+                </td>
+                <td>
+                    <svg width="40" height="40" id="svgFilter1">
+					  <rect width="40" height="40" style="fill:#5258cf" />
+					</svg>
+                </td>
+                <td>
+                    <svg width="40" height="40" id="svgFilter2">
+					  <rect width="40" height="40" style="fill:#6191af" />
+					</svg>
+                </td>
+                <td>
+                    <svg width="40" height="40" id="svgFilter3">
+					  <rect width="40" height="40" style="fill:#abd9e9" />
+					</svg>
+                </td>
+                <td>
+                    <svg width="40" height="40" id="svgFilter4">
+					  <rect width="40" height="40" style="fill:#ffd3a6" />
+					</svg>
+                </td>
+                <td>
+                    <svg width="40" height="40" id="svgFilter5">
+					  <rect width="40" height="40" style="fill:#ff8b3c" />
+					</svg>
+                </td>
+                <td>
+                    <svg width="40" height="40" id="svgFilter6">
+					  <rect width="40" height="40" style="fill:#fe3e22" />
+					</svg>
+                </td>
+                <td>
+                    <svg width="40" height="40" id="svgFilter7">
+					  <rect width="40" height="40" style="fill:#d7180d" />
+					</svg>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="highlightDates" id="interval0" value="0" onclick="checkWhich()"/>
+                </td>
+                <td>
+                    <input type="radio" name="highlightDates" id="interval3" value="3" onclick="checkWhich()"/>
+                </td>
+                <td>
+                    <input type="radio" name="highlightDates" id="interval4" value="4" onclick="checkWhich()"/>
+                </td>
+                <td>
+                    <input type="radio" name="highlightDates" id="interval5" value="5" onclick="checkWhich()"/>
+                </td>
+                <td>
+                    <input type="radio" name="highlightDates" id="interval6" value="6" onclick="checkWhich()"/>
+                </td>
+                <td>
+                    <input type="radio" name="highlightDates" id="interval7" value="7" onclick="checkWhich()"/>
+                </td>
+                <td>
+                    <input type="radio" name="highlightDates" id="interval8" value="8" onclick="checkWhich()"/>
+                </td>
+                <td>
+                    <input type="radio" name="highlightDates" id="interval9" value="9" onclick="checkWhich()"/>
+                </td>
+            </tr>
+        </table>
+		
+		<br>
+		<center><a href="aboutPage.html" class="w3-button w3-white w3-border">About this project <i class="fa fa-arrow-right"></i></a></center>
+		
+	</div>
+    </body>
+    
+    <script>
+	// cal-heatmap prefers the initializations of the calendars in the html	
+	
+    yearcal1 = new CalHeatMap();
+    yearcal1.init({
+        itemName: "cakeday",
+        itemSelector: "#cal_jan2jun",
+        label: {
+            position: "top"
+        },
+        cellSize: 20,
+        cellPadding: 5,
+        domain: "month",
+        subDomain: "x_day",
+        subDomainTextFormat: "%d",
+        subDomainDateFormat: "%m/%d",
+        range: 6,
+        verticalOrientation: false,
+        domainMargin: 10,
+        start: new Date(2016, 0, 1),
+        weekStartOnMonday: false,
+        data: "cal_data.json",
+        tooltip: true,
+        displayLegend: false,
+        legend: [250, 299, 349, 400, 450, 500]
+    });
+
+    yearcal2 = new CalHeatMap();
+    yearcal2.init({
+        itemSelector: "#cal_jul2dec",
+        label: {
+            position: "top"
+        },
+        cellSize: 20,
+        cellPadding: 5,
+        domain: "month",
+        subDomain: "x_day",
+        subDomainTextFormat: "%d",
+        range: 6,
+        verticalOrientation: false,
+        domainMargin: 10,
+        start: new Date(2016, 6, 1),
+        weekStartOnMonday: false,
+        data: "cal_data.json",
+        tooltip: true,
+        displayLegend: false,
+        legend: [250, 299, 350, 400, 450, 500]
+    });
+    </script>
+</html>

@@ -1,0 +1,224 @@
+/* Misc CSS */
+
+body {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color: #fff;
+}
+
+.image {
+    position: relative;
+    width: 100%;
+}
+
+h2 {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 100%;
+    color: white
+}
+
+table {
+	table-layout: fixed;
+    border: none;
+    border-collapse: collapse;
+    color: white;
+}
+
+td {
+	text-align: center;
+	vertical-align: center;
+	padding-left: 30px;
+	padding-right: 30px;
+	color: black;	
+}
+
+.spanLinks {
+	margin-right:30px;
+}
+
+/* 
+A:LINK {
+	COLOR: "#FFD3A6";
+}
+
+A:VISITED {
+	COLOR: "#FFD3A6";
+}
+
+A:HOVER {
+	COLOR: "#FF8B3C";
+}
+
+A:ACTIVE {
+	COLOR: "#ABD9E9";
+}
+
+link="#FFD3A6" vlink="#FFD3A6" alink="#ABD9E9"
+*/
+
+
+
+
+/* Cal-HeatMap CSS */
+
+
+
+
+.cal-heatmap-container {
+	display: block;
+	margin: 0 auto;
+}
+
+.cal-heatmap-container .graph
+{
+	font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+
+.cal-heatmap-container .graph-label
+{
+	fill: #999;
+	font-size: 20px
+}
+
+.cal-heatmap-container .graph, .cal-heatmap-container .graph-legend rect {
+	shape-rendering: crispedges
+}
+
+.cal-heatmap-container .graph-rect
+{
+	fill: #ededed
+}
+
+.cal-heatmap-container .graph-subdomain-group rect:hover
+{
+	stroke: #000;
+	stroke-width: 1px;
+}
+
+.cal-heatmap-container .subdomain-text {
+	font-size: 8px;
+	fill: #000;
+	pointer-events: none
+}
+
+.cal-heatmap-container .hover_cursor:hover {
+	cursor: pointer
+}
+
+.cal-heatmap-container .qi {
+	background-color: #999;
+	fill: #999
+}
+
+/*
+Remove comment to apply this style to date with value equal to 0
+.q0
+{
+	background-color: #fff;
+	fill: #fff;
+	stroke: #ededed
+}
+*/
+
+.cal-heatmap-container .q1
+{
+	background-color: #5258cf;
+	fill: #5258cf
+}
+
+.cal-heatmap-container .q2
+{
+	background-color: #6191af;
+	fill: #6191af
+}
+
+.cal-heatmap-container .q3
+{
+	background-color: #abd9e9;
+	fill: #abd9e9
+}
+
+.cal-heatmap-container .q4
+{
+	background-color: #ffd3a6;
+	fill: #ffd3a6
+}
+
+.cal-heatmap-container .q5
+{
+	background-color: #ff8b3c;
+	fill: #ff8b3c
+}
+
+.cal-heatmap-container .q6
+{
+	background-color: #fe3e22;
+	fill: #fe3e22
+}
+
+.cal-heatmap-container .q7
+{
+	background-color: #d7180d;
+	fill: #d7180d
+}
+
+
+.cal-heatmap-container rect.highlight
+{
+	stroke:#000;
+	stroke-width:3
+}
+
+.cal-heatmap-container text.highlight
+{
+	fill: #000
+}
+
+.cal-heatmap-container rect.now
+{
+	stroke: red
+}
+
+.cal-heatmap-container text.now
+{
+	fill: red;
+	font-weight: 800
+}
+
+.cal-heatmap-container .domain-background {
+	fill: none;
+	shape-rendering: crispedges
+}
+
+.ch-tooltip {
+	padding: 10px;
+	background: #222;
+	color: #bbb;
+	font-size: 12px;
+	line-height: 1.4;
+	width: 140px;
+	position: absolute;
+	z-index: 99999;
+	text-align: center;
+	border-radius: 2px;
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+	display: none;
+	box-sizing: border-box;
+}
+
+.ch-tooltip::after{
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-color: transparent;
+	border-style: solid;
+	content: "";
+	padding: 0;
+	display: block;
+	bottom: -6px;
+	left: 50%;
+	margin-left: -6px;
+    border-width: 6px 6px 0;
+    border-top-color: #222;
+}

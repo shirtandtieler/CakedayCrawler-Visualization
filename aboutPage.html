@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<script type="text/javascript" src="cal-heatmap.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+	
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="cal-heatmap.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<title>Cakeday Crawling Info</title>
+	</head>
+	
+	<body class="w3-light-gray">
+	<div class="w3-content" style="max-width:1200px">
+		<!-- Header -->
+		<header class="w3-container w3-center w3-padding-32">
+			<div class="w3-bar">
+				<div class="w3-bar-item">
+					<h1 style="padding-top:55px"><b>Cakeday Crawler Information</b></h1>
+				</div>
+				<div class="w3-bar-item">
+					<img src="http://i.imgur.com/bZ8KCR8.png" style="padding-bottom:20px" height="128"/>
+				</div>
+			</div>
+			<br>
+			<a href="index.html" class="w3-button w3-white w3-border"><i class="fa fa-arrow-left"></i> Go back to the results</a>
+		</header>
+		
+		<div class="w3-panel">
+			<div class="w3-container w3-gray">
+			  <h3>About the idea</h3>
+			</div>
+
+			<div class="w3-container w3-border">
+			  <p>When I discovered the subreddit <a href="http://reddit.com/r/cakeday">/r/cakeday</a> I began to wonder the frequency of cakedays around the year. So I decided to scratch that itch, along with finding a way to nicely visualize it.</p>
+			</div>
+		</div>
+
+		<div class="w3-panel">
+			<div class="w3-container w3-gray">
+				<h3>About the programming</h3>
+			</div>
+			
+			<div class="w3-container w3-border">
+				<div class="w3-panel w3-sand w3-leftbar">
+					<p>
+						<i class="fa fa-exclamation-circle w3-large w3-opacity"></i>
+						The description below states information that was relevant to the version of PRAW I was using when I made this project in 2015. Since then, it's undergone some major updating; you can now access the created timestamp of each user's accounts from the API - i.e. urllib2 isn't needed anymore.
+					</p>
+				</div> 
+				<p>Within Python, I used a mix of <a href="https://praw.readthedocs.io/en/latest/">PRAW</a> (Python-Reddit API Wrapper) and urllib2. Of course, PRAW was used to access Reddit and gather usernames. However I needed urllib2 for the reason Tom Chapin (the creator of <a href="http://redditcakeday.com">redditcakeday.com</a>) explained <a href="http://www.tchapin.com/for-all-the-redditors-out-there/">on his site</a>: each Reddit user has an "about.json" file which contains a variable of the timestamp of when the user created their account.</p>
+				<p>Since PRAW does not provide the ability to access the information from the file, I needed urllib2 to gather that data.</p>
+				<p>With the data in hand, I used <a href="http://cal-heatmap.com/">cal-heatmap</a>, a javascript module used to display calendar heatmap data (which is what sites like GitHub uses to display user's contributions).</p>
+				<p>One of the features that I really liked about cal-heatmap was the ability to highlight individual days. However the only way to do that is via javascript code, so I made the filter bar as a bridge between user and code, allowing you to select certain dates.</p>
+			</div>
+		</div>
+		
+		
+		<div class="w3-panel">
+			<div class="w3-container w3-gray">
+				<h3>About the data gathering</h3> 
+			</div>
+			<div class="w3-container w3-border">
+				<p>Since the source code will do most of the technical explanation, I just wanted to explain a few of the 'how' and 'why' quesions people may ask.</p> 
+				<p>I restricted the users I allowed to one that were at least a week old. Since I was running the crawler non-stop for a few days, I didn't want any bias to new users.</p>
+				<p>For gathering users, the process was run on a fairly simple loop: I used PRAW's "get_random_subreddit" function to first target a community. I then crawled posts randomally until I got a maximum of 1000 users. Most subreddits tend to have <i>way</i> more than 1000 users, however I wanted to diversify the users I pulled as much as possible.</p>
+				<p> Between PRAW's limitation on requests within a certain time, the slow process of finding the user's cakeday from each user's json file, and the check to make sure the user wasn't already recorded, it was pulling in about 1 or 2 people per second. My goal was to get 1 million people, but that would have taken about 2.5 weeks of constant running.</p>  
+				<p> I decided to not include the year as a seperating factor due to the fact that I was more focused with the time of year that people joined, rather than a timeline of Reddit itself.</p>
+				<p>I also wanted to include the leap day (February 29th) in the displayed calendar, so I set the calendar to display 2016's year. Due to the rarity of the day, I had expected to see a large amount of people signing up that day, however there was unfortunately only a minimal amount of people.</p>
+			</div>
+		</div>
+	</div>
+	</body>
+</html>
