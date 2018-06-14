@@ -24,7 +24,7 @@
 					<h1 style="padding-top:55px"><b>Cakeday Crawler Information</b></h1>
 				</div>
 				<div class="w3-bar-item">
-					<img src="http://i.imgur.com/bZ8KCR8.png" style="padding-bottom:20px" height="128"/>
+					<img src="https://i.imgur.com/bZ8KCR8.png" style="padding-bottom:20px" height="128"/>
 				</div>
 			</div>
 			<br>
@@ -37,7 +37,7 @@
 			</div>
 
 			<div class="w3-container w3-border">
-			  <p>When I discovered the subreddit <a href="http://reddit.com/r/cakeday">/r/cakeday</a> I began to wonder the frequency of cakedays around the year. So I decided to scratch that itch, along with finding a way to nicely visualize it.</p>
+			  <p>When I discovered the subreddit <a href="https://reddit.com/r/cakeday">/r/cakeday</a> I began to wonder the frequency of cakedays around the year. So I decided to scratch that itch, along with finding a way to nicely visualize it.</p>
 			</div>
 		</div>
 
@@ -53,9 +53,9 @@
 						The description below states information that was relevant to the version of PRAW I was using when I made this project in 2015. Since then, it's undergone some major updating; you can now access the created timestamp of each user's accounts from the API - i.e. urllib2 isn't needed anymore.
 					</p>
 				</div> 
-				<p>Within Python, I used a mix of <a href="https://praw.readthedocs.io/en/latest/">PRAW</a> (Python-Reddit API Wrapper) and urllib2. Of course, PRAW was used to access Reddit and gather usernames. However I needed urllib2 for the reason Tom Chapin (the creator of <a href="http://redditcakeday.com">redditcakeday.com</a>) explained <a href="http://www.tchapin.com/for-all-the-redditors-out-there/">on his site</a>: each Reddit user has an "about.json" file which contains a variable of the timestamp of when the user created their account.</p>
+				<p>Within Python, I used a mix of <a href="https://praw.readthedocs.io/en/latest/">PRAW</a> (Python-Reddit API Wrapper) and urllib2. Of course, PRAW was used to access Reddit and gather usernames. However I needed urllib2 for the reason Tom Chapin (the creator of <a href="https://redditcakeday.com">redditcakeday.com</a>) explained <a href="https://www.tchapin.com/for-all-the-redditors-out-there/">on his site</a>: each Reddit user has an "about.json" file which contains a variable of the timestamp of when the user created their account.</p>
 				<p>Since PRAW does not provide the ability to access the information from the file, I needed urllib2 to gather that data.</p>
-				<p>With the data in hand, I used <a href="http://cal-heatmap.com/">cal-heatmap</a>, a javascript module used to display calendar heatmap data (which is what sites like GitHub uses to display user's contributions).</p>
+				<p>With the data in hand, I used <a href="https://cal-heatmap.com/">cal-heatmap</a>, a javascript module used to display calendar heatmap data (which is what sites like GitHub uses to display user's contributions).</p>
 				<p>One of the features that I really liked about cal-heatmap was the ability to highlight individual days. However the only way to do that is via javascript code, so I made the filter bar as a bridge between user and code, allowing you to select certain dates.</p>
 			</div>
 		</div>
